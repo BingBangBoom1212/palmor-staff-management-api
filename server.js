@@ -7,11 +7,9 @@ const DISCORD_GUILD_ID = process.env.DISCORD_GUILD_ID;
 const API_SECRET = process.env.API_SECRET || "";
 
 const linkedAccounts = {
-  "3321828490": "1265951794891329561"
-  "5028632040": "1400599067624607784"
+  "3321828490": "1265951794891329561",
+  "5028632040": "1400599067624607784",
   "4036042012": "1357929023363219598"
-
-
 };
 
 app.get("/", (req, res) => {
@@ -105,6 +103,8 @@ app.get("/roles", async (req, res) => {
       roleNames
     });
   } catch (error) {
+    console.error(error);
+
     res.status(500).json({
       success: false,
       message: "Server error"
